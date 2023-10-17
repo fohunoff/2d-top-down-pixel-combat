@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool FacingLeft { get { return facingLeft; } set { facingLeft = value; } }
+
     [SerializeField] private float moveSpeed = 1f;
 
     private PlayerControls playerControls;
@@ -12,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private Animator myAnimator;
     private SpriteRenderer mySpriteRenderer;
 
+    private bool facingLeft = false;
 
     private void Awake() {
         playerControls = new PlayerControls();
@@ -51,8 +54,10 @@ public class PlayerController : MonoBehaviour
 
         if (mousePos.x < playerScreenPoint.x) {
             mySpriteRenderer.flipX = true;
+            FacingLeft = true;
         } else {
             mySpriteRenderer.flipX = false;
+            FacingLeft = false;
         }
     }
 }

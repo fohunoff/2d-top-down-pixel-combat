@@ -5,11 +5,17 @@ using UnityEngine.Timeline;
 
 public class Sword : MonoBehaviour
 {
+    [SerializeField] private GameObject slashAnimPrefab;
+    [SerializeField] private Transform slashAnimationSpawnPoint;
+
+
     private PlayerControls playerControls;
     private Animator myAnimator;
 
     private PlayerController playerController;
     private ActiveWeapon activeWeapon;
+
+    private GameObject slashAnimation;
 
 
     private void Awake() {
@@ -35,6 +41,21 @@ public class Sword : MonoBehaviour
 
     private void Attack() {
         myAnimator.SetTrigger("Attack");
+
+        slashAnimation = Instantiate(slashAnimPrefab, slashAnimationSpawnPoint.position, Quaternion.identity);
+        slashAnimation.transform.parent = this.transform.parent;
+
+        if (playerController.FacingLeft) {
+            slashAnimation.GetComponent<SpriteRenderer>().flipX = true;
+        }
+    }
+
+    public void SwingUpFlipAnim() {
+        slashAnimation.gameObject.transform.rotation = Quaternion.Euler(-180, 0, 0);
+
+        if (playerController.FacingLeft) {
+            slashAnimation.GetComponent<SpriteRenderer>().flipX = true;
+        }
     }
 
     private void MouseFollowWithOffset() {
