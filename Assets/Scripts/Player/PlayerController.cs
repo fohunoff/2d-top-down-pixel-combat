@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     public static PlayerController Instance;
 
     [SerializeField] private float moveSpeed = 1f;
+    [SerializeField] private float dashSpeed = 4f;
+    [SerializeField] private TrailRenderer myTrailRenderer;
 
     private PlayerControls playerControls;
     private Vector2 movement;
@@ -16,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer mySpriteRenderer;
 
     private bool facingLeft = false;
+    private bool isDashing = false;
 
     private void Awake() {
         Instance = this;
@@ -25,6 +28,10 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void Start() {
+        playerControls.Combat.Dash.performed += _ => Dash();
     }
 
     private void OnEnable() {
@@ -63,4 +70,28 @@ public class PlayerController : MonoBehaviour
             FacingLeft = false;
         }
     }
+
+    private void Dash() {
+        if (!isDashing) {
+            moveSpeed *= dashSpeed;
+            StartCoroutine(EndDashRoutine());
+        }
+    }
+
+    private IEnumerator EndDashRoutine() {
+        isDashing = true;
+
+        float dashTime = 0.2f;
+        float dashCoolDown = 0.25f;
+
+        myTrailRenderer.emitting = true;
+
+        yield return new WaitForSeconds(dashTime);
+
+        moveSpeed /= dashSpeed;
+        myTrailRenderer.emitting = false;
+
+        yield return new WaitForSeconds(dashCoolDown);
+        isDashing = false;
+    } 
 }

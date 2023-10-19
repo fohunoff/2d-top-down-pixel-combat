@@ -162,6 +162,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""68271266-1675-4c3a-a1a9-691d97cc8daa"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -186,6 +195,28 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5ab40eae-ee5a-4773-83a1-068ab99a6f14"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""df7c1929-0aea-409f-8ed0-f7f56b19a864"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -198,6 +229,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         // Combat
         m_Combat = asset.FindActionMap("Combat", throwIfNotFound: true);
         m_Combat_Attack = m_Combat.FindAction("Attack", throwIfNotFound: true);
+        m_Combat_Dash = m_Combat.FindAction("Dash", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -291,11 +323,13 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Combat;
     private ICombatActions m_CombatActionsCallbackInterface;
     private readonly InputAction m_Combat_Attack;
+    private readonly InputAction m_Combat_Dash;
     public struct CombatActions
     {
         private @PlayerControls m_Wrapper;
         public CombatActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Attack => m_Wrapper.m_Combat_Attack;
+        public InputAction @Dash => m_Wrapper.m_Combat_Dash;
         public InputActionMap Get() { return m_Wrapper.m_Combat; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -308,6 +342,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Attack.started -= m_Wrapper.m_CombatActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_CombatActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_CombatActionsCallbackInterface.OnAttack;
+                @Dash.started -= m_Wrapper.m_CombatActionsCallbackInterface.OnDash;
+                @Dash.performed -= m_Wrapper.m_CombatActionsCallbackInterface.OnDash;
+                @Dash.canceled -= m_Wrapper.m_CombatActionsCallbackInterface.OnDash;
             }
             m_Wrapper.m_CombatActionsCallbackInterface = instance;
             if (instance != null)
@@ -315,6 +352,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
+                @Dash.started += instance.OnDash;
+                @Dash.performed += instance.OnDash;
+                @Dash.canceled += instance.OnDash;
             }
         }
     }
@@ -326,5 +366,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     public interface ICombatActions
     {
         void OnAttack(InputAction.CallbackContext context);
+        void OnDash(InputAction.CallbackContext context);
     }
 }
