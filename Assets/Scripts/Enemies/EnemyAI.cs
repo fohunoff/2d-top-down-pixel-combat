@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class EnemyAI : MonoBehaviour {
+public class EnemyAI : MonoBehaviour
+{
+    [SerializeField] private float roamingChangeDirectionTime = 2f;
+
     private enum State {
         Roaming,
     }
@@ -24,7 +27,7 @@ public class EnemyAI : MonoBehaviour {
         while (state == State.Roaming) {
             Vector2 roamPosition = GetRoamingPosition();
             enemyPath.MoveTo(roamPosition);
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(roamingChangeDirectionTime);
         }
     }
 
