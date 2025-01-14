@@ -31,7 +31,12 @@ public class ActiveInventory : MonoBehaviour
             inventorySlot.GetChild(0).gameObject.SetActive(false); // 0 -  это первый потомок, в котором лежит подсветка элемента
         }
 
-        Debug.Log("" + activeSlotIndexNum);
         this.transform.GetChild(indexNum).GetChild(0).gameObject.SetActive(true);
+
+        ChangeActiveWeapon(); 
     }
+
+     private void ChangeActiveWeapon() {
+        Debug.Log(transform.GetChild(activeSlotIndexNum).GetComponent<InventorySlot>().GetWeaponInfo().weaponPrefab.name); 
+     }
 }
