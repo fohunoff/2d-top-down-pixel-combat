@@ -75,7 +75,7 @@ public class Sword : MonoBehaviour, IWeapon
             ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, -180, angle);
             weaponCollider.transform.rotation = Quaternion.Euler(0, -180, 0);
         } else {
-             ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 0, angle);
+            ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 0, angle);
             weaponCollider.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
