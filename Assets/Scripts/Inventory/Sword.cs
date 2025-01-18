@@ -19,8 +19,7 @@ public class Sword : MonoBehaviour, IWeapon
         slashAnimationSpawnPoint = GameObject.Find("SlashAnimationSpawnPoint").transform; // alternative variant
     }
 
-
-    private void Awake() {
+     private void Awake() {
         myAnimator = GetComponent<Animator>();
     }
 
