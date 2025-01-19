@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class Staff : MonoBehaviour, IWeapon 
 {
+    [SerializeField] private WeaponInfo weaponInfo;
+
     private void Update() {
         MouseFollowWithOffset();
     }
 
+    public WeaponInfo GetWeaponInfo() {
+        return weaponInfo;
+    }
+
     public void Attack() {
         Debug.Log("STAFF!");
-
-        ActiveWeapon.Instance.ToggleIsAttacking(false);
     }
 
     private void MouseFollowWithOffset() {

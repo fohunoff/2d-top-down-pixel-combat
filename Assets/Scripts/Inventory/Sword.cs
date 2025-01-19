@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.Timeline;
 
 public class Sword : MonoBehaviour, IWeapon
-{
+{ 
     [SerializeField] private GameObject slashAnimPrefab;
     [SerializeField] private Transform slashAnimationSpawnPoint;
-    [SerializeField] private float swordAttackCoolDownTime = 0.5f;
+    [SerializeField] private WeaponInfo weaponInfo;
 
 
     private Transform weaponCollider;
@@ -27,22 +27,16 @@ public class Sword : MonoBehaviour, IWeapon
         MouseFollowWithOffset();
     }
 
-    public  void Attack() {
-        // isAttacking = true; 
+    public WeaponInfo GetWeaponInfo() {
+        return weaponInfo;
+    }
 
+    public  void Attack() {
         myAnimator.SetTrigger("Attack");
         weaponCollider.gameObject.SetActive(true);
 
         slashAnimation = Instantiate(slashAnimPrefab, slashAnimationSpawnPoint.position, Quaternion.identity);
         slashAnimation.transform.parent = this.transform.parent;
-
-        StartCoroutine(AttackCoolDownRouting());
-    }
-
-    private IEnumerator AttackCoolDownRouting() {
-        yield return  new WaitForSeconds(swordAttackCoolDownTime);
-
-        ActiveWeapon.Instance.ToggleIsAttacking(false);
     }
 
     public void DoneAttackingAnimEvent() {
