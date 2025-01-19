@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6021843258989202955}
   - component: {fileID: 4211611205270703630}
   - component: {fileID: 7092666848613301563}
+  - component: {fileID: 2849007796043527328}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
@@ -117,7 +118,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.00000000436613, y: 0.036625758}
@@ -138,7 +139,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -148,7 +149,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!96 &4211611205270703630
 TrailRenderer:
@@ -201,8 +202,8 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 0.09913695
+        time: 0.0019836426
+        value: 0.05603087
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -210,8 +211,8 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.89484125
-        value: 0.017239273
+        time: 0.6666613
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -275,3 +276,17 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortAtRoot: 0
+--- !u!114 &2849007796043527328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5365217581527333450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71d759ca64254921bed00c358179e96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 22
+  particlePrefabOnHitVFX: {fileID: 7303942208982493517, guid: 7413ec40f00da45188f1071b3ea9877d, type: 3}
