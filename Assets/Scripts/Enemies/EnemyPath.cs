@@ -28,6 +28,10 @@ public class EnemyPath : MonoBehaviour {
         moveDir = targetPosition;
     }
 
+    public void StopMoving() {
+        moveDir = Vector3.zero;
+    }
+
     private void Move() {
         rb.MovePosition(rb.position + moveDir * (moveSpeed * Time.fixedDeltaTime));
     }
