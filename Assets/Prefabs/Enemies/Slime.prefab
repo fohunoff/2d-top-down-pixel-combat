@@ -170,6 +170,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roamingChangeDirectionTime: 2
+  attackRange: 0
+  attackCooldown: 2
+  enemyType: {fileID: 0}
+  stopMovingWhileAttacking: 0
 --- !u!114 &8716958044002378561
 MonoBehaviour:
   m_ObjectHideFlags: 0

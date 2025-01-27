@@ -21,7 +21,11 @@ public class EnemyPath : MonoBehaviour {
         Move();
 
         
-        spriteRenderer.flipX = moveDir.x < 0;
+        if (moveDir.x < 0) {
+            spriteRenderer.flipX = true;
+        } else if (moveDir.x > 0) {
+            spriteRenderer.flipX = false;
+        }
     }
 
     public void MoveTo(Vector2 targetPosition) {
