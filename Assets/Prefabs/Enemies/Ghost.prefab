@@ -254,9 +254,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roamingChangeDirectionTime: 2
-  attackRange: 5
+  attackRange: 10
   attackCooldown: 2
   enemyType: {fileID: -2039736109165049626}
+  stopMovingWhileAttacking: 0
 --- !u!114 &6483042994681228396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,3 +350,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 2545125683834175862, guid: 15c25d3a647974b36be0771759e915cb, type: 3}
+  bulletMoveSpeed: 5
+  burstCount: 3
+  projectilesPerBurst: 8
+  angleSpread: 90
+  startingDistance: 0.3
+  timeBetweenBursts: 1
+  restTime: 1
+  stagger: 1
+  oscillate: 1
