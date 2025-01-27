@@ -25,6 +25,10 @@ public class Projectile : MonoBehaviour
         this.projectileRange = projectileRange;
     }
 
+    public void UpdateMoveSpeed(float projectileSpeed) {
+        this.moveSpeed = projectileSpeed;
+    }
+
     private void OnTriggerEnter2D(Collider2D other) {
         EnemyHealth enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
         Indestructible indestructible= other.gameObject.GetComponent<Indestructible>();
