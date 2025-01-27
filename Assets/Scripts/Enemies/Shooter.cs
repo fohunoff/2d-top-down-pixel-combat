@@ -5,19 +5,42 @@ using UnityEngine;
 public class Shooter : MonoBehaviour, IEnemy
 {
     [SerializeField] private GameObject bulletPrefab;
+    [Space(20)]
+
     [SerializeField] private float bulletMoveSpeed = 0f;
+    [SerializeField] private float startingDistance = 0.1f;
     [SerializeField] private int burstCount;
     [SerializeField] private int projectilesPerBurst = 1;
     [SerializeField][Range(0, 359)] private float angleSpread;
-    [SerializeField] private float startingDistance = 0.1f;
+    [Space(20)]
 
     [SerializeField] private float timeBetweenBursts;
     [SerializeField] private float restTime = 1f;
+    [Space(10)]
 
+    [Header("Some variants")]
     [SerializeField] private bool stagger;
+    [Tooltip("Stagger has to be enable for oscillate to work properly.")]
     [SerializeField] private bool oscillate;
 
     private bool isShooting = false;
+
+    private void OnValidate() {
+        if (bulletMoveSpeed < 0f) { bulletMoveSpeed = 0.1f; }
+
+        if (burstCount < 1) { burstCount = 1; }
+        if (projectilesPerBurst < 1) { projectilesPerBurst = 1; }
+
+        if (angleSpread == 0f) { projectilesPerBurst = 1; }
+
+        if (startingDistance < 0.1f) { startingDistance = 0.1f; }
+        if (timeBetweenBursts < 0.1f) { timeBetweenBursts = 0.1f; }
+        if (restTime < 0.1f) { restTime = 0.1f; }
+
+
+        if (oscillate) { stagger = true; }
+        if (!oscillate) { stagger = false; }
+    }
 
     public void Attack() {
         if (!isShooting) {
