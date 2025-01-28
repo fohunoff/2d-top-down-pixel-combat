@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6656622083305851460}
   - component: {fileID: 4247398260061042016}
   - component: {fileID: 7650812055704139628}
+  - component: {fileID: -8982263308891311919}
   m_Layer: 0
   m_Name: Grape Projectile
   m_TagString: Untagged
@@ -148,3 +149,42 @@ CircleCollider2D:
   m_Offset: {x: 0.00000023841858, y: 0}
   serializedVersion: 2
   m_Radius: 0.31360364
+--- !u!114 &-8982263308891311919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6999902536569077346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efa055e1af17b4f248d0c73658b9c37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 2
+  animCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.9964608
+      value: -0.003288269
+      inSlope: -2.843983
+      outSlope: -2.843983
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.008635477
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  heightY: 6
+  grapeProjectileShadow: {fileID: 5805530587499303042, guid: 81bf3d604ab714017b1f8909072f2ca6, type: 3}
