@@ -191,25 +191,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1371659321060673574, guid: fd940b8da5c1545748ac82a2fd9de28f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.9032254
-      objectReference: {fileID: 0}
-    - target: {fileID: 1371659321060673574, guid: fd940b8da5c1545748ac82a2fd9de28f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.6253986
-      objectReference: {fileID: 0}
     - target: {fileID: 4982439418999582796, guid: fd940b8da5c1545748ac82a2fd9de28f, type: 3}
       propertyPath: m_Name
       value: Cameras
-      objectReference: {fileID: 0}
-    - target: {fileID: 6237299285371637100, guid: fd940b8da5c1545748ac82a2fd9de28f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.9032254
-      objectReference: {fileID: 0}
-    - target: {fileID: 6237299285371637100, guid: fd940b8da5c1545748ac82a2fd9de28f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.6253986
       objectReference: {fileID: 0}
     - target: {fileID: 6636680437209763933, guid: fd940b8da5c1545748ac82a2fd9de28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -257,7 +241,7 @@ PrefabInstance:
       objectReference: {fileID: 1622113194}
     - target: {fileID: 7421079326743464267, guid: fd940b8da5c1545748ac82a2fd9de28f, type: 3}
       propertyPath: m_ChildCameras.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
