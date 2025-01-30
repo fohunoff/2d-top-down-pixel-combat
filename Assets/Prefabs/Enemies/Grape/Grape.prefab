@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4467211214099325657}
   - component: {fileID: 9434979048975544}
   - component: {fileID: 8564890239990128803}
+  - component: {fileID: 4556120085622197045}
   m_Layer: 0
   m_Name: Grape
   m_TagString: Untagged
@@ -288,6 +289,21 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortAtRoot: 0
+--- !u!114 &4556120085622197045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4721139117318564625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98f9a3c3f67ca4c6b86b9bcb1aadc7ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldCoin: {fileID: 821521231539359560, guid: e986a7e60c59e41969027076fa659aba, type: 3}
+  healthGlobe: {fileID: 821521231539359560, guid: f76d740df199a4cfe99c828bf8b8fdca, type: 3}
+  staminaGlobe: {fileID: 821521231539359560, guid: 5f0e03e3250b4426d8c1e8f21d7b5d3f, type: 3}
 --- !u!1 &7662699311184615730
 GameObject:
   m_ObjectHideFlags: 0

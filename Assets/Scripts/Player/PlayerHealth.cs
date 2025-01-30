@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : Singleton<PlayerHealth>
 {
     [SerializeField] private int maxHealth = 3;
     [SerializeField] private float knockBackThrustAmount = 10f;
     [SerializeField] private float damageRecoveryTime = 1f;
+
+
+    private string healthSliderRef = "Health Slider";
+    private Slider healthSlider;
 
     private int currentHealth;
     private bool canTakeDamage = true;
@@ -16,13 +21,15 @@ public class PlayerHealth : Singleton<PlayerHealth>
 
     protected override void Awake() {
         base.Awake();
-        
+
         knockback = GetComponent<Knockback>();
         flash = GetComponent<Flash>();
     }
 
     private void Start() {
         currentHealth = maxHealth;
+
+        UpdateHealthSlider();
     }
 
     private void OnCollisionStay2D(Collision2D other) {
@@ -35,7 +42,11 @@ public class PlayerHealth : Singleton<PlayerHealth>
     }
 
     public void Heal(int value = 1) {
-        currentHealth += value;
+        if (currentHealth < maxHealth) {
+            currentHealth += value;
+            UpdateHealthSlider();
+        }
+
     }
 
     public void TakeDamage(int damage, Transform hitTransform) {
@@ -51,10 +62,29 @@ public class PlayerHealth : Singleton<PlayerHealth>
         currentHealth -= damage;
 
         StartCoroutine(DamageRecoveryRoutine());
+
+        CheckIfPlayerDeath();
+        UpdateHealthSlider();
+    }
+    
+    private void CheckIfPlayerDeath() {
+        if (currentHealth <= 0) {
+            currentHealth = 0;
+            Debug.Log("Player Death");
+        }
     }
 
     private IEnumerator DamageRecoveryRoutine() {
         yield return new WaitForSeconds(damageRecoveryTime);
         canTakeDamage = true; 
+    }
+
+    private void UpdateHealthSlider() {
+        if (healthSlider == null) {
+            healthSlider = GameObject.Find(healthSliderRef).GetComponent<Slider>();
+        }
+
+        healthSlider.maxValue = maxHealth;
+        healthSlider.value = currentHealth;
     }
 }
