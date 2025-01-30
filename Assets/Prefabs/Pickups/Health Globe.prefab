@@ -161,6 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e4ce745725e42f29c55877b4f4c003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupType: 1
   pickupDistance: 5
   moveSpeed: 10
   accelartionRange: 10.2
