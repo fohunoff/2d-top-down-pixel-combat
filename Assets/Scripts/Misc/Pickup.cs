@@ -8,11 +8,20 @@ public class Pickups : MonoBehaviour
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private float accelartionRange = 0.4f;
 
+    [Header("Spawn Settings")]
+    [SerializeField] private AnimationCurve animationCurve;
+    [SerializeField] private float heightY = 1f;
+    [SerializeField] private float popDuration = 1f;
+
     private Vector3 moveDirection;
     private Rigidbody2D rb;
 
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void Start() {
+        StartCoroutine(AnimationCurveSpawnRoutine());
     }
 
     private void Update() {
@@ -34,6 +43,27 @@ public class Pickups : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.GetComponent<PlayerController>()) {
             Destroy(gameObject);
+        }
+    }
+
+    private IEnumerator AnimationCurveSpawnRoutine() {
+        float randomX = transform.position.x + Random.Range(-1f, 1f);
+        float randomY = transform.position.y + Random.Range(-1f, 1f);
+
+        Vector2 startPoint = transform.position;
+        Vector2 endPoint = new Vector2(randomX, randomY);
+
+        float timePassed = 0f;
+
+        while (timePassed < popDuration) {
+            timePassed += Time.deltaTime;
+
+            float linearT = timePassed / popDuration; // от 0 до 1 -- коэффициент интерполяции
+            float heightT = animationCurve.Evaluate(linearT); // высота, зависящая от кривой
+            float height = Mathf.Lerp(0f, heightY, heightT); // от желаемой высоты до высоты в коэффициенте
+
+            transform.position = Vector2.Lerp(startPoint, endPoint, linearT) + new Vector2(0f, height);
+            yield return null;
         }
     }
 }
