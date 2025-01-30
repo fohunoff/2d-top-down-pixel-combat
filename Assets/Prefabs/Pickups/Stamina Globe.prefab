@@ -12,11 +12,9 @@ GameObject:
   - component: {fileID: 4708804321949793785}
   - component: {fileID: 1165436166020974456}
   - component: {fileID: 2667942766703723875}
-  - component: {fileID: 7610270280661741363}
-  - component: {fileID: -89733809189510376}
   - component: {fileID: 5784106941413867630}
   m_Layer: 0
-  m_Name: Gold Coin
+  m_Name: Stamina Globe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: f1475537c5dc845e9be658c40d3d68d2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -78,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1413400978, guid: 4644545bbb2e041deaacbc2a0a59bd12, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8b27821804e78409699920b4f5aea9c1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -151,39 +149,6 @@ CircleCollider2D:
   m_Offset: {x: -0.014521122, y: 0}
   serializedVersion: 2
   m_Radius: 0.30396414
---- !u!95 &7610270280661741363
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 821521231539359560}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f8d1be0efb578491ab0c5685965ac4c4, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-89733809189510376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 821521231539359560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2084a488ea86d048b018ecb3d4068a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5784106941413867630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e4ce745725e42f29c55877b4f4c003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupType: 2
   pickupDistance: 5
   moveSpeed: 10
   accelartionRange: 10.2
