@@ -239,10 +239,6 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 1622113194}
-    - target: {fileID: 7421079326743464267, guid: fd940b8da5c1545748ac82a2fd9de28f, type: 3}
-      propertyPath: m_ChildCameras.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16578,10 +16574,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4480454585162192725, guid: d9187751195e34cff9952b2bfd8da9ce, type: 3}
-      propertyPath: m_TargetGraphic
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4922477306086679624, guid: d9187751195e34cff9952b2bfd8da9ce, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -16932,22 +16924,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4839406965847042527, guid: 02e6835a0bd514d3a947146b6dac9567, type: 3}
-      propertyPath: m_Size.x
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4839406965847042527, guid: 02e6835a0bd514d3a947146b6dac9567, type: 3}
-      propertyPath: m_Size.y
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4839406965847042527, guid: 02e6835a0bd514d3a947146b6dac9567, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 163080087, guid: ae5d8525e0cc1084abd569cad47976d5, type: 3}
-    - target: {fileID: 4839406965847042527, guid: 02e6835a0bd514d3a947146b6dac9567, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5307558057170297366, guid: 02e6835a0bd514d3a947146b6dac9567, type: 3}
       propertyPath: m_Name
       value: Player
@@ -16965,21 +16941,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3253613980822861272, guid: 39cc3fbfe3dce9f44bcaeb3e4fc756a8, type: 3}
-      propertyPath: sceneToLoad
-      value: Scene_1_1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3253613980822861272, guid: 39cc3fbfe3dce9f44bcaeb3e4fc756a8, type: 3}
-      propertyPath: sceneTransitionName
-      value: East_Entrance
-      objectReference: {fileID: 0}
     - target: {fileID: 3253613980822861273, guid: 39cc3fbfe3dce9f44bcaeb3e4fc756a8, type: 3}
       propertyPath: m_Name
       value: AreaExit
-      objectReference: {fileID: 0}
-    - target: {fileID: 3253613980822861278, guid: 39cc3fbfe3dce9f44bcaeb3e4fc756a8, type: 3}
-      propertyPath: m_RootOrder
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3253613980822861278, guid: 39cc3fbfe3dce9f44bcaeb3e4fc756a8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17020,26 +16984,6 @@ PrefabInstance:
     - target: {fileID: 3253613980822861278, guid: 39cc3fbfe3dce9f44bcaeb3e4fc756a8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3412186608676394417, guid: 39cc3fbfe3dce9f44bcaeb3e4fc756a8, type: 3}
-      propertyPath: transitionName
-      value: West_Entrance
-      objectReference: {fileID: 0}
-    - target: {fileID: 4133075240190644190, guid: 39cc3fbfe3dce9f44bcaeb3e4fc756a8, type: 3}
-      propertyPath: m_Flip.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6438167445171580738, guid: 39cc3fbfe3dce9f44bcaeb3e4fc756a8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.61
-      objectReference: {fileID: 0}
-    - target: {fileID: 8430101415664162067, guid: 39cc3fbfe3dce9f44bcaeb3e4fc756a8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.55
-      objectReference: {fileID: 0}
-    - target: {fileID: 8430101415664162067, guid: 39cc3fbfe3dce9f44bcaeb3e4fc756a8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
