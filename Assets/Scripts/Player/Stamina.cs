@@ -33,7 +33,7 @@ public class Stamina : Singleton<Stamina>
     }
 
     public void RefreshStamina() {
-        if (CurrentStamina < maxStamina) {
+        if (CurrentStamina < maxStamina && !PlayerHealth.Instance.IsDead) {
             CurrentStamina++;
             UpdateStaminaImages();
         }

@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : Singleton<PlayerHealth>
 {
+    public bool IsDead { get; private set; }
+
     [SerializeField] private int maxHealth = 3;
     [SerializeField] private float knockBackThrustAmount = 10f;
     [SerializeField] private float damageRecoveryTime = 1f;
@@ -18,6 +21,8 @@ public class PlayerHealth : Singleton<PlayerHealth>
     private Flash flash;
 
     const string HEALTH_SLIDER_REF = "Health Slider";
+    const string TOWN_SCENE_REF = "Town";
+    readonly int DEATH_HASH = Animator.StringToHash("Death");
 
     protected override void Awake() {
         base.Awake();
@@ -27,6 +32,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
     }
 
     private void Start() {
+        IsDead = false;
         currentHealth = maxHealth;
 
         UpdateHealthSlider();
@@ -60,7 +66,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
 
         canTakeDamage = false;
         currentHealth -= damage;
-
+        
         StartCoroutine(DamageRecoveryRoutine());
 
         CheckIfPlayerDeath();
@@ -68,15 +74,27 @@ public class PlayerHealth : Singleton<PlayerHealth>
     }
     
     private void CheckIfPlayerDeath() {
-        if (currentHealth <= 0) {
+        if (currentHealth <= 0 && !IsDead) {
+            IsDead = true;
             currentHealth = 0;
-            Debug.Log("Player Death");
+
+            GetComponent<Animator>().SetTrigger(DEATH_HASH);
+            Destroy(ActiveWeapon.Instance.gameObject);
+
+            StartCoroutine(DeathLoadSceneRoutine());
         }
+    }
+
+    private IEnumerator DeathLoadSceneRoutine() {
+        yield return new WaitForSeconds(3f);
+
+        Destroy(gameObject);
+        SceneManager.LoadScene(TOWN_SCENE_REF);
     }
 
     private IEnumerator DamageRecoveryRoutine() {
         yield return new WaitForSeconds(damageRecoveryTime);
-        canTakeDamage = true; 
+        canTakeDamage = true;
     }
 
     private void UpdateHealthSlider() {
