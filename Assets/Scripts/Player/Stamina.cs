@@ -30,6 +30,9 @@ public class Stamina : Singleton<Stamina>
     public void UseStamina() {
         CurrentStamina--;
         UpdateStaminaImages();
+
+        StopAllCoroutines();
+        StartCoroutine(RefreshStaminaRoutine());
     }
 
     public void RefreshStamina() {
@@ -37,6 +40,11 @@ public class Stamina : Singleton<Stamina>
             CurrentStamina++;
             UpdateStaminaImages();
         }
+    }
+
+    public void ReplenishStaminaOnDeath() {
+        CurrentStamina = startingStamina;
+        UpdateStaminaImages();
     }
 
     private IEnumerator RefreshStaminaRoutine() {
@@ -51,16 +59,14 @@ public class Stamina : Singleton<Stamina>
         {
             Debug.Log(CurrentStamina);
 
-            if (i <= CurrentStamina - 1) {
-                staminaContainer.GetChild(i).GetComponent<Image>().sprite = fullStaminaImage;
-            } else {
-                staminaContainer.GetChild(i).GetComponent<Image>().sprite = emptyStaminaImage;
-            }
-        }
+            Transform child = staminaContainer.GetChild(i);
+            Image image = child?.GetComponent<Image>();
 
-        if (CurrentStamina < maxStamina) {
-            StopAllCoroutines();
-            StartCoroutine(RefreshStaminaRoutine());
+            if (i <= CurrentStamina - 1) {
+                image.sprite = fullStaminaImage;
+            } else {
+                image.sprite = emptyStaminaImage;
+            }
         }
     }
 }
